@@ -24,7 +24,7 @@ ORDER BY timestamp DESC
 
 recent_flights = flights.head(20)
 
-st.title("✈️ Real-Time Flight Tracking Dashboard")
+st.title("Real-Time Flight Tracking Dashboard")
 
 col1, col2, col3 = st.columns(3)
 

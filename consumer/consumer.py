@@ -2,9 +2,38 @@ import duckdb
 from kafka import KafkaConsumer
 import json
 from pathlib import Path
+from datetime import datetime
+import time
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = BASE_DIR / "flights.db"
+
+consumer = KafkaConsumer(
+    "flights",
+    bootstrap_servers="localhost:9092",
+    value_deserializer=lambda m: json.loads(m.decode("utf-8")),
+    auto_offset_reset="latest",
+    enable_auto_commit=False,
+    group_id=None
+)
+
+print("Consumer started. Waiting for Kafka messages...")
+
+records = []
+start_time = time.time()
+
+while len(records) < 50 and time.time() - start_time < 20:
+    messages = consumer.poll(timeout_ms=1000, max_records=50)
+
+    for _, batch in messages.items():
+        for msg in batch:
+            records.append(msg.value)
+
+consumer.close()
+
+if not records:
+    print("No Kafka messages received.")
+    exit()
 
 con = duckdb.connect(str(DB_PATH))
 
@@ -24,20 +53,7 @@ CREATE TABLE IF NOT EXISTS raw_flights (
 );
 """)
 
-consumer = KafkaConsumer(
-    "flights",
-    bootstrap_servers="localhost:9092",
-    value_deserializer=lambda m: json.loads(m.decode("utf-8")),
-    auto_offset_reset="earliest",
-    enable_auto_commit=True,
-    group_id="flight_consumer_group"
-)
-
-print("Consumer started. Reading from Kafka...")
-
-for message in consumer:
-    r = message.value
-
+for r in records:
     con.execute("""
     INSERT INTO raw_flights VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """, (
@@ -54,4 +70,6 @@ for message in consumer:
         r["timestamp"]
     ))
 
-    print(f"Inserted flight {r['callsign']}")
+con.close()
+
+print(f"{len(records)} flights loaded into DuckDB.")
