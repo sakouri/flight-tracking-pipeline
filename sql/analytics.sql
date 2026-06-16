@@ -1,8 +1,12 @@
+-- analytics.sql
+-- Run after each batch in consumer_live.py
+-- Aggregates from raw_flights into three summary tables
+
 CREATE OR REPLACE TABLE flight_stats AS
 SELECT
-    COUNT(*) AS total_flights,
-    AVG(altitude) AS avg_altitude,
-    AVG(velocity) AS avg_velocity
+    COUNT(*)        AS total_flights,
+    AVG(altitude)   AS avg_altitude,
+    AVG(velocity)   AS avg_velocity
 FROM raw_flights;
 
 CREATE OR REPLACE TABLE country_stats AS
@@ -20,4 +24,4 @@ SELECT
     COUNT(*) AS flight_count
 FROM raw_flights
 GROUP BY departure_airport, arrival_airport
-ORDER BY flight_count DESC;
+ORDER BY flight_count DESC

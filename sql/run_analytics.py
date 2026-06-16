@@ -1,15 +1,18 @@
 import duckdb
 from pathlib import Path
 
-BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).resolve().parent.parent  # project root
+DB_PATH = BASE_DIR / "flights.db"
+SQL_PATH = Path(__file__).resolve().parent / "analytics.sql"
 
-con = duckdb.connect("flights.db")
+con = duckdb.connect(str(DB_PATH))
 
-sql_file = BASE_DIR / "analytics.sql"
+sql = SQL_PATH.read_text(encoding="utf-8")
 
-with open(sql_file, "r", encoding="utf-8") as f:
-    sql = f.read()
+for stmt in sql.split(";"):
+    stmt = stmt.strip()
+    if stmt:
+        con.execute(stmt)
 
-con.execute(sql)
-
-print("Analytics tables created.")
+con.close()
+print("Analytics tables refreshed.")
