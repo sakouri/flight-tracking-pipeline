@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36">
+  <diagram name="Page-1" id="Nrm-5rW6lrh0g44MxsAa">
+    <mxGraphModel dx="682" dy="596" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-3" edge="1" parent="1" source="ifnq27NY_WUnXgnaldDn-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="ifnq27NY_WUnXgnaldDn-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ifnq27NY_WUnXgnaldDn-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="producer.py" vertex="1">
+          <mxGeometry height="60" width="160" x="80" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-2" edge="1" parent="1" source="ifnq27NY_WUnXgnaldDn-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="e4RfNvTI9x2AC_5xD3kG-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ifnq27NY_WUnXgnaldDn-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Kafka" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="consumer_live.py" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-7" edge="1" parent="1" source="e4RfNvTI9x2AC_5xD3kG-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="e4RfNvTI9x2AC_5xD3kG-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="DuckDB raw_flights" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-5" edge="1" parent="1" source="e4RfNvTI9x2AC_5xD3kG-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0.142;entryDx=0;entryDy=0;entryPerimeter=0;" target="e4RfNvTI9x2AC_5xD3kG-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-9" edge="1" parent="1" source="e4RfNvTI9x2AC_5xD3kG-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="e4RfNvTI9x2AC_5xD3kG-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="SQL transformations" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Analytics Tables" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Streamlit Dashboard" vertex="1">
+          <mxGeometry height="60" width="120" x="110" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="e4RfNvTI9x2AC_5xD3kG-11" edge="1" parent="1" source="e4RfNvTI9x2AC_5xD3kG-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.417;entryY=0.042;entryDx=0;entryDy=0;entryPerimeter=0;" target="e4RfNvTI9x2AC_5xD3kG-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
